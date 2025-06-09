@@ -19,8 +19,10 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Grant Execute Permission for Gradle
-        run: chmod +x ./gradlew
+      - name: Grant Execute Permission
+        run: |
+          chmod +x ./gradlew
+          chmod +x scripts/zip-test-results.sh
 
       - name: Run Tests
         run: ./gradlew test
