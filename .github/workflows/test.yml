@@ -26,12 +26,10 @@ jobs:
         run: ./gradlew test
 
       - name: Zip Test Results
-        run: |
-          mkdir -p zipped-results
-          zip zipped-results/test-results.zip build/test-results/test/TEST-*.xml
+        run: ./scripts/zip-test-results.sh
 
       - name: Upload Test Results Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: zipped-results/test-results.zip
+          path: test-artifacts/test-results.zip
